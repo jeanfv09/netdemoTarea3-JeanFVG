@@ -1,0 +1,41 @@
+@model List<netdemoTarea3.Models.Mascota>
+
+<h2>Lista de Mascotas</h2>
+
+<p>
+    <a asp-action="Crear" class="btn btn-success">Registrar nueva mascota</a>
+</p>
+
+<table class="table table-bordered" style="margin-top:10px;">
+    <thead class="thead-light">
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Edad</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model == null || Model.Count == 0)
+        {
+            <tr>
+                <td colspan="4" class="text-center">No hay mascotas registradas.</td>
+            </tr>
+        }
+        else
+        {
+            int i = 1;
+            foreach(var m in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@m.Nombre</td>
+                    <td>@m.Tipo</td>
+                    <td>@m.Edad</td>
+                </tr>
+                i++;
+            }
+        }
+    </tbody>
+</table>
+
