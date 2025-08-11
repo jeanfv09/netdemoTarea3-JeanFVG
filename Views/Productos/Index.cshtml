@@ -1,0 +1,45 @@
+@model List<netdemoTarea3.Models.Producto>
+
+<style>
+    .productos-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .producto-card {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        width: 200px;
+        text-align: center;
+        box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+        padding: 15px;
+    }
+    .producto-card img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .producto-nombre {
+        font-weight: bold;
+        margin: 10px 0 5px;
+    }
+    .producto-precio {
+        color: #28a745;
+        font-size: 1.1em;
+        margin-bottom: 10px;
+    }
+</style>
+
+<h2>🐾 Productos para Mascotas</h2>
+<div class="productos-container">
+    @foreach (var p in Model)
+    {
+        <div class="producto-card">
+            <img src="@p.ImagenUrl" alt="@p.Nombre" />
+            <div class="producto-nombre">@p.Nombre</div>
+            <div class="producto-precio">$@p.Precio</div>
+        </div>
+    }
+</div>
